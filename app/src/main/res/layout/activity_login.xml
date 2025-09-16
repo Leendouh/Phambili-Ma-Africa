@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 android:contentDescription="Logo"
-                android:src="@drawable/logo" />
+                android:src="@drawable/ic_logo" />
 
             <!-- Title -->
             <TextView
@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:text="Log In"
-                android:textColor="#1D4ED8"
+                android:textColor="#0066CC"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -132,7 +132,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Forgot password?"
-                    android:textColor="#1D4ED8"
+                    android:textColor="#0066CC"
                     android:textSize="14sp" />
             </LinearLayout>
 
@@ -142,7 +142,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:backgroundTint="#1D4ED8"
+                android:backgroundTint="#0066CC"
                 android:elevation="4dp"
                 android:paddingVertical="12dp"
                 android:text="Log In"
