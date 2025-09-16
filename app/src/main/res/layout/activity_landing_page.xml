@@ -1,66 +1,114 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    android:padding="16dp">
+    android:id="@+id/main"
+    tools:context=".LandingPage"
+    >
 
-    <!-- Logo -->
-    <ImageView
-        android:id="@+id/logoImage"
-        android:layout_width="wrap_content"
-        android:layout_height="74dp"
-        android:layout_gravity="center_horizontal"
-        android:contentDescription="@string/logo"
-        android:src="@drawable/logo" />
-
-    <!-- Cleaning Tools Image -->
-    <ImageView
-        android:id="@+id/cleaningImage"
+    <!-- Top bar with menu (left) and profile (right) -->
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:layout_marginTop="16dp"
-        android:contentDescription="@string/cleaning_tools"
-        android:scaleType="fitXY"
-        android:src="@drawable/index" />
+        android:layout_height="wrap_content">
 
-    <!-- Title -->
-    <TextView
-        android:id="@+id/titleText"
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@drawable/ic_menu"
+            app:menu="@menu/menu_top_app_bar"
+            app:title=""
+            app:contentInsetStartWithNavigation="0dp" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Main content -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/professional_cleaning_services"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="#000000"
-        android:gravity="center"
-        android:layout_marginTop="16dp" />
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <!-- Description -->
-    <TextView
-        android:id="@+id/descriptionText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="24dp"
-        android:gravity="center"
-        android:text="Phambili Ma-Africa provides exceptional cleaning services for homes and businesses. Our trained professionals deliver quality cleaning solutions tailored to your needs."
-        android:textColor="#444444"
-        android:textSize="16sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
 
-    <!-- Spacer -->
+            <!-- Logo, centered under the toolbar -->
+            <ImageView
+                android:id="@+id/logoImage"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/logo" />
 
-    <!-- Start Button -->
+            <!-- Banner / hero image -->
+            <ImageView
+                android:id="@+id/bannerImage"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginTop="16dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/index" />
 
-    <Button
-        android:id="@+id/startButton"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="Start"
-        android:backgroundTint="#007BFF"
-        android:textColor="@android:color/white" />
+            <!-- Title -->
+            <TextView
+                android:id="@+id/titleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:text="Professional Cleaning Services"
+                android:textColor="#1D4ED8"
+                android:textSize="22sp"
+                android:textStyle="bold" />
 
-</LinearLayout>
+            <!-- Description -->
+            <TextView
+                android:id="@+id/descriptionText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:lineSpacingExtra="4dp"
+                android:text="Phambili Ma-Africa provides exceptional cleaning services for homes and businesses. Our trained professionals deliver quality cleaning solutions tailored to your needs."
+                android:textColor="#2E2E2E"
+                android:textSize="14sp" />
+
+            <!-- Book Now -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBookNow"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="20dp"
+                android:text="Book Now"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                app:backgroundTint="#1D4ED8"
+                app:cornerRadius="24dp"
+                app:iconGravity="textStart"
+                app:strokeWidth="0dp"
+                android:textColor="@android:color/white" />
+
+            <!-- Our Services -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnOurServices"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="12dp"
+                android:text="Our Services"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                app:backgroundTint="#FFD600"
+                app:cornerRadius="24dp"
+                app:strokeWidth="0dp"
+                android:textColor="@android:color/black" />
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
