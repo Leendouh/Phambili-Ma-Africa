@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".Gallery">
+
+    <!-- Sticky Header Section -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:elevation="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:background="#FFFFFF"
+            app:layout_scrollFlags="scroll|enterAlways|snap">
+
+            <!-- Hamburger Menu Button -->
+            <ImageView
+                android:id="@+id/hamburger_btn"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_menu"
+                android:contentDescription="Toggle menu"
+                android:adjustViewBounds="true" />
+
+            <!-- Spacer to push logo to center -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <!-- Logo -->
+            <ImageView
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:scaleType="fitCenter"
+                android:contentDescription="Phambili Ma-Africa Logo"
+                android:src="@drawable/ic_logo"
+                android:adjustViewBounds="true" />
+
+            <!-- Spacer to push icons to right -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <!-- Icons Container -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <!-- User Icon -->
+                <ImageView
+                    android:id="@+id/user_btn"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_user"
+                    android:contentDescription="User Profile"
+                    android:adjustViewBounds="true" />
+
+                <!-- Cart Button -->
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp">
+
+                    <ImageView
+                        android:id="@+id/cart_btn"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_cart"
+                        android:contentDescription="Shopping Cart"
+                        android:adjustViewBounds="true" />
+
+                    <TextView
+                        android:id="@+id/cart_badge"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:layout_gravity="end|top"
+                        android:background="@drawable/cart_badge_bg"
+                        android:text="0"
+                        android:textColor="#FFF"
+                        android:textSize="10sp"
+                        android:gravity="center" />
+                </FrameLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Scrollable Content -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Section Title -->
+            <TextView
+                android:id="@+id/gallery_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cleaning Results"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#3372FF"
+                android:gravity="center_horizontal"
+                android:paddingBottom="4dp"
+                android:fontFamily="sans-serif-medium"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Browse our gallery of cleaning transformations"
+                android:textColor="#8D99AE"
+                android:textSize="15sp"
+                android:gravity="center_horizontal"
+                android:paddingBottom="16dp"
+                android:fontFamily="sans-serif"/>
+
+            <!-- Filter Buttons Row -->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:rowCount="2"
+                android:alignmentMode="alignMargins"
+                android:useDefaultMargins="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="18dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/filter_all"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_columnWeight="1"
+                    android:text="All Work"
+                    android:textColor="#FFF"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:backgroundTint="#0066CC"
+                    app:cornerRadius="8dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_row="0"
+                    android:layout_column="0"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/filter_products"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_columnWeight="1"
+                    android:text="Products"
+                    android:textColor="#FFF"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:backgroundTint="#0066CC"
+                    app:cornerRadius="8dp"
+                    android:layout_row="0"
+                    android:layout_column="1"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/filter_deep_clean"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_columnWeight="1"
+                    android:text="Deep Cleaning"
+                    android:textColor="#FFF"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:backgroundTint="#0066CC"
+                    app:cornerRadius="8dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_row="1"
+                    android:layout_column="0"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/filter_commercial"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_columnWeight="1"
+                    android:text="Commercial"
+                    android:textColor="#FFF"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:backgroundTint="#0066CC"
+                    app:cornerRadius="8dp"
+                    android:layout_row="1"
+                    android:layout_column="1"/>
+            </GridLayout>
+
+            <!-- Gallery Grid (2 Columns, 3 Rows) -->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:rowCount="3"
+                android:alignmentMode="alignMargins"
+                android:useDefaultMargins="true">
+
+                <!-- Item 1: Image -->
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    android:layout_columnWeight="1"
+                    android:layout_row="0"
+                    android:layout_column="0"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/gallery_img_bg">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/backyard"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="Clean hallway"/>
+
+                </FrameLayout>
+
+                <!-- Item 2: Image -->
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    android:layout_columnWeight="1"
+                    android:layout_row="0"
+                    android:layout_column="1"
+                    android:background="@drawable/gallery_img_bg">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/dining_room"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="Outdoor cleaning"/>
+                </FrameLayout>
+
+                <!-- Item 3: Video (with Play Icon) -->
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    android:layout_columnWeight="1"
+                    android:layout_row="1"
+                    android:layout_column="0"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/gallery_img_bg">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/hover"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="Car cleaning"/>
+
+                    <ImageView
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_play_circle"
+                        android:contentDescription="Play Video"/>
+                </FrameLayout>
+
+                <!-- Item 4: Video (with Play Icon) -->
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    android:layout_columnWeight="1"
+                    android:layout_row="1"
+                    android:layout_column="1"
+                    android:background="@drawable/gallery_img_bg">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/sofa"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="Window cleaning"/>
+
+                    <ImageView
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_play_circle"
+                        android:contentDescription="Play Video"/>
+                </FrameLayout>
+
+                <!-- Item 5: Video (with Play Icon) -->
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    android:layout_columnWeight="1"
+                    android:layout_row="2"
+                    android:layout_column="0"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/gallery_img_bg">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/sitting_room"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="Gym cleaning"/>
+
+                    <ImageView
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_play_circle"
+                        android:contentDescription="Play Video"/>
+                </FrameLayout>
+
+                <!-- Item 6: Image -->
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    android:layout_columnWeight="1"
+                    android:layout_row="2"
+                    android:layout_column="1"
+                    android:background="@drawable/gallery_img_bg">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/kitchen"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="Team photo"/>
+                </FrameLayout>
+            </GridLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

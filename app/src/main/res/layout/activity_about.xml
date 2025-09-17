@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".About">
+
+    <!-- Sticky Header Section -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:elevation="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:background="#FFFFFF"
+            app:layout_scrollFlags="scroll|enterAlways|snap">
+
+            <!-- Hamburger Menu Button -->
+            <ImageView
+                android:id="@+id/hamburger_btn"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_menu"
+                android:contentDescription="Toggle menu"
+                android:adjustViewBounds="true" />
+
+            <!-- Spacer to push logo to center -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <!-- Logo -->
+            <ImageView
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:scaleType="fitCenter"
+                android:contentDescription="Phambili Ma-Africa Logo"
+                android:src="@drawable/ic_logo"
+                android:adjustViewBounds="true" />
+
+            <!-- Spacer to push icons to right -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <!-- Icons Container -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <!-- User Icon -->
+                <ImageView
+                    android:id="@+id/user_btn"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_user"
+                    android:contentDescription="User Profile"
+                    android:adjustViewBounds="true" />
+
+                <!-- Cart Button -->
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp">
+
+                    <ImageView
+                        android:id="@+id/cart_btn"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_cart"
+                        android:contentDescription="Shopping Cart"
+                        android:adjustViewBounds="true" />
+
+                    <TextView
+                        android:id="@+id/cart_badge"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:layout_gravity="end|top"
+                        android:background="@drawable/cart_badge_bg"
+                        android:text="0"
+                        android:textColor="#FFF"
+                        android:textSize="10sp"
+                        android:gravity="center" />
+                </FrameLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Scrollable Content -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="32dp"
+            android:paddingBottom="32dp"
+            android:gravity="center_horizontal">
+
+            <!-- Section Title -->
+            <TextView
+                android:id="@+id/about_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="About"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="#0066CC"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:paddingBottom="16dp"/>
+
+            <!-- Owner Image (Rounded Corner) -->
+            <ImageView
+                android:id="@+id/about_owner_img"
+                android:layout_width="260dp"
+                android:layout_height="300dp"
+                android:src="@drawable/about_owner"
+                android:scaleType="centerCrop"
+                android:background="@drawable/rounded_img_bg"
+                android:layout_marginBottom="20dp"/>
+
+            <!-- Meet the Owner & Founder -->
+            <TextView
+                android:id="@+id/about_meet_owner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Meet the Owner and Founder"
+                android:textColor="#0066CC"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:paddingBottom="2dp"/>
+
+            <TextView
+                android:id="@+id/about_owner_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nkosinathi Ngema"
+                android:textColor="#222"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:paddingBottom="8dp"/>
+
+            <!-- Date and Author -->
+            <TextView
+                android:id="@+id/about_date_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="13th November 2019 • phambilimaafrica"
+                android:textColor="#888"
+                android:textSize="13sp"
+                android:gravity="center"
+                android:paddingBottom="12dp"/>
+
+            <!-- Description -->
+            <TextView
+                android:id="@+id/about_desc_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Phambili Ma-Africa Trading Enterprise is the result of vision, creativity, and the passion of young entrepreneurs. Established in 2007, we have built a strong reputation for quality and efficiency, consistently delivering beyond our customers’ expectations."
+                android:textColor="#222"
+                android:textSize="15sp"
+                android:fontFamily="sans-serif"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:paddingBottom="14dp"/>
+
+            <TextView
+                android:id="@+id/about_desc_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="We believe in contributing to the growth of a more equitable South African economy."
+                android:textColor="#222"
+                android:textSize="15sp"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:paddingBottom="24dp"/>
+
+            <!-- CTA Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/about_cta_btn"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="Get in touch"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:textColor="#FFF"
+                android:backgroundTint="#0066CC"
+                android:fontFamily="sans-serif-medium"
+                android:layout_marginTop="6dp"
+                android:elevation="2dp"
+                app:cornerRadius="4dp"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
