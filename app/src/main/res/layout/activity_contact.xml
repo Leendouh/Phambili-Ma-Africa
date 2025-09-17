@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4FAFF"
+    tools:context=".Contact">
+
+    <!-- Sticky Header Section -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:elevation="4dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:background="#FFFFFF"
+            app:layout_scrollFlags="scroll|enterAlways|snap">
+
+            <!-- Hamburger Menu Button -->
+            <ImageView
+                android:id="@+id/hamburger_btn"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_menu"
+                android:contentDescription="Toggle menu"
+                android:adjustViewBounds="true" />
+
+            <!-- Spacer to push logo to center -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <!-- Logo -->
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:scaleType="fitCenter"
+                android:contentDescription="Phambili Ma-Africa Logo"
+                android:src="@drawable/ic_logo"
+                android:adjustViewBounds="true" />
+
+            <!-- Spacer to push icons to right -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <!-- Icons Container -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <!-- User Icon -->
+                <ImageView
+                    android:id="@+id/user_btn"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_user"
+                    android:contentDescription="User Profile"
+                    android:adjustViewBounds="true" />
+
+                <!-- Cart Button -->
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp">
+
+                    <ImageView
+                        android:id="@+id/cart_btn"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_cart"
+                        android:contentDescription="Shopping Cart"
+                        android:adjustViewBounds="true" />
+
+                    <TextView
+                        android:id="@+id/cart_badge"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:layout_gravity="end|top"
+                        android:background="@drawable/cart_badge_bg"
+                        android:text="0"
+                        android:textColor="#FFF"
+                        android:textSize="10sp"
+                        android:gravity="center" />
+                </FrameLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E3E6ED" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Main Content -->
+    <ScrollView
+        android:id="@+id/contact_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@+id/appbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:gravity="center_horizontal">
+
+            <!-- Title -->
+            <TextView
+                android:id="@+id/contact_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contact Us"
+                android:textColor="#0066CC"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="6dp"/>
+
+            <!-- Map Section -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:layout_marginBottom="18dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp"
+                android:backgroundTint="#FFF">
+
+                <WebView
+                    android:id="@+id/contact_map"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#FFF"
+                    android:contentDescription="Map location"/>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Name Field -->
+            <EditText
+                android:id="@+id/contact_name"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginBottom="14dp"
+                android:background="@drawable/rounded_edittext"
+                android:hint="Your full name"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:textColor="#444"
+                android:textColorHint="#A0A6B2"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif"
+                android:importantForAutofill="yes"/>
+
+            <!-- Email Field -->
+            <EditText
+                android:id="@+id/contact_email"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@drawable/rounded_edittext"
+                android:hint="Your email address"
+                android:textColor="#444"
+                android:textColorHint="#A0A6B2"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif"
+                android:inputType="textEmailAddress"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_marginBottom="14dp"
+                android:importantForAutofill="yes"/>
+
+            <!-- Message Label -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your Message"
+                android:textColor="#222"
+                android:textSize="15sp"
+                android:fontFamily="sans-serif-medium"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="4dp"
+                android:gravity="start"/>
+
+            <!-- Message Field -->
+            <EditText
+                android:id="@+id/contact_message"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:background="@drawable/rounded_edittext"
+                android:hint="How can we help you?"
+                android:textColor="#222"
+                android:textColorHint="#A0A6B2"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif"
+                android:gravity="top|start"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="16dp"
+                android:inputType="textMultiLine"
+                android:layout_marginBottom="18dp"
+                android:importantForAutofill="yes"/>
+
+            <!-- Submit Button -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="14dp"
+                android:gravity="center">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/contact_submit"
+                    android:layout_width="160dp"
+                    android:layout_height="60dp"
+                    android:backgroundTint="#0066CC"
+                    app:cornerRadius="24dp"
+                    app:icon="@drawable/ic_send"
+                    app:iconTint="#FFF"
+                    app:iconSize="24dp"
+                    android:text="Send Message"
+                    android:textColor="#FFF"
+                    android:textSize="16sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:layout_gravity="center"
+                    android:contentDescription="Send Message"
+                    android:elevation="4dp"/>
+            </FrameLayout>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
