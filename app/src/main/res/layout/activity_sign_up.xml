@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/main"
     tools:context=".Sign_Up">
 
     <ScrollView
@@ -54,7 +55,7 @@
                 android:gravity="center"
                 android:layout_marginBottom="20dp"/>
 
-            <!-- Email Field -->
+            <!-- Username Field -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
@@ -65,12 +66,12 @@
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp">
 
-                <!-- Email Icon -->
+                <!-- User Icon -->
                 <ImageView
                     android:layout_width="22dp"
                     android:layout_height="22dp"
                     android:src="@drawable/ic_user"
-                    android:contentDescription="Email icon" />
+                    android:contentDescription="User icon" />
 
                 <EditText
                     android:id="@+id/username"
@@ -82,7 +83,7 @@
                     android:textColor="#222"
                     android:textSize="15sp"
                     android:fontFamily="sans-serif"
-                    android:inputType="textEmailAddress"
+                    android:inputType="text"
                     android:paddingStart="10dp"/>
             </LinearLayout>
 
@@ -129,13 +130,12 @@
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp">
 
-                <!-- Password Icon -->
+                <!-- Password Icon - Use your own drawable -->
                 <ImageView
                     android:layout_width="22dp"
                     android:layout_height="22dp"
-                    android:src="@android:drawable/ic_lock"
-                    android:contentDescription="Password icon"
-                    />
+                    android:src="@drawable/ic_lock"
+                    android:contentDescription="Password icon" />
 
                 <EditText
                     android:id="@+id/signup_password"
@@ -160,7 +160,7 @@
                     android:contentDescription="Show password" />
             </LinearLayout>
 
-            <!-- Password Field -->
+            <!-- Confirm Password Field -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
@@ -171,20 +171,20 @@
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp">
 
-                <!-- Password Icon -->
+                <!-- Password Icon - Use your own drawable -->
                 <ImageView
                     android:layout_width="22dp"
                     android:layout_height="22dp"
-                    android:src="@android:drawable/ic_lock"
+                    android:src="@drawable/ic_lock"
                     android:contentDescription="Password icon" />
 
                 <EditText
-                    android:id="@+id/signup1_password"
+                    android:id="@+id/signup_confirm_password"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
-                    android:hint="Password"
+                    android:hint="Confirm Password"
                     android:textColor="#222"
                     android:textSize="15sp"
                     android:fontFamily="sans-serif"
@@ -193,7 +193,7 @@
 
                 <!-- Eye Icon Button for password toggle -->
                 <ImageButton
-                    android:id="@+id/signup1_toggle_password"
+                    android:id="@+id/signup_confirm_toggle_password"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:background="@android:color/transparent"
@@ -283,10 +283,11 @@
                 android:gravity="center"
                 android:layout_marginBottom="10dp">
 
+                <!-- Use app namespace for MaterialButton attributes -->
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/signup_google"
                     android:layout_width="0dp"
-                    android:layout_height="44dp"
+                    android:layout_height="48dp"
                     android:layout_weight="1"
                     android:text="Google"
                     android:textColor="#222"
@@ -295,6 +296,9 @@
                     android:backgroundTint="#F4F6FA"
                     android:fontFamily="sans-serif-medium"
                     android:layout_marginEnd="8dp"
+                    app:icon="@drawable/ic_google"
+                    app:iconGravity="textStart"
+                    app:iconPadding="10dp"
                     app:strokeColor="#E2E4EA"
                     app:strokeWidth="1dp"
                     app:cornerRadius="10dp"/>
@@ -302,7 +306,7 @@
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/signup_facebook"
                     android:layout_width="0dp"
-                    android:layout_height="44dp"
+                    android:layout_height="48dp"
                     android:layout_weight="1"
                     android:text="Facebook"
                     android:textColor="#222"
@@ -311,6 +315,9 @@
                     android:backgroundTint="#F4F6FA"
                     android:fontFamily="sans-serif-medium"
                     android:layout_marginStart="8dp"
+                    app:icon="@drawable/ic_facebook"
+                    app:iconGravity="textStart"
+                    app:iconPadding="10dp"
                     app:strokeColor="#E2E4EA"
                     app:strokeWidth="1dp"
                     app:cornerRadius="10dp"/>

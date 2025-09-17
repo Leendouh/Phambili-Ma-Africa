@@ -27,12 +27,12 @@
             <!-- Hamburger Menu Button -->
             <ImageView
                 android:id="@+id/hamburger_btn"
-                android:layout_width="24dp"
+                android:layout_width="21dp"
                 android:layout_height="24dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_menu"
+                android:adjustViewBounds="true"
                 android:contentDescription="Toggle menu"
-                android:adjustViewBounds="true" />
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_menu" />
 
             <!-- Spacer to push logo to center -->
             <View

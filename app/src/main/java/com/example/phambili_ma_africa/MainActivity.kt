@@ -3,6 +3,7 @@ package com.example.phambili_ma_africa
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -19,10 +20,11 @@ class MainActivity : AppCompatActivity() {
             insets
         }
         // Handle Start button click -> go to LoginActivity
-        val btnStart = findViewById<Button>(R.id.startButton)
-        btnStart.setOnClickListener {
-            val intent = Intent(this,Login ::class.java)
+        val img = findViewById<ImageView>(R.id.user_btn)
+        img.setOnClickListener {
+            val intent = Intent(this, Sign_Up::class.java)
             startActivity(intent)
+
         }
     }
 }
