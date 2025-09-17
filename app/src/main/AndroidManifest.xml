@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PhambiliMaAfrica">
         <activity
+            android:name=".Contact"
+            android:exported="false" />
+        <activity
+            android:name=".Services"
+            android:exported="false" />
+        <activity
             android:name=".Products"
             android:exported="false" />
         <activity
