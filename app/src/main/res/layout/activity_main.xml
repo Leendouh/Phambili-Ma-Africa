@@ -1,73 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".MainActivity"
-    android:orientation="vertical"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
-    android:id="@+id/main"
+    android:background="#FFFFFF"
+    tools:context=".MainActivity">
 
-    android:padding="16dp">
-
-    <!-- Logo -->
-    <ImageView
-        android:id="@+id/logoImage"
-        android:layout_width="wrap_content"
-        android:layout_height="113dp"
-        android:layout_gravity="center_horizontal"
-        android:contentDescription="@string/logo"
-        android:src="@drawable/ic_logo" />
-
-    <!-- Cleaning Tools Image -->
-
-    <!-- Title -->
-    <ImageView
-        android:id="@+id/cleaningImage"
-        android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:layout_marginTop="16dp"
-        android:contentDescription="@string/cleaning_tools"
-        android:scaleType="fitXY"
-        android:src="@drawable/index" />
-
-    <TextView
-        android:id="@+id/titleText"
+    <!-- Sticky Header Section -->
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:text="@string/professional_cleaning_services"
-        android:textColor="#000000"
-        android:textSize="25sp"
-        android:textStyle="bold" />
+        android:background="#FFFFFF"
+        android:elevation="4dp">
 
-    <!-- Description -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:background="#FFFFFF"
+            app:layout_scrollFlags="scroll|enterAlways|snap">
 
-    <!-- Spacer -->
+            <!-- Hamburger Menu Button -->
+            <ImageView
+                android:id="@+id/hamburger_btn"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_menu"
+                android:contentDescription="Toggle menu"
+                android:adjustViewBounds="true" />
 
-    <!-- Start Button -->
+            <!-- Spacer to push logo to center -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
 
-    <TextView
-        android:id="@+id/descriptionText"
+            <!-- Logo -->
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:scaleType="fitCenter"
+                android:contentDescription="Phambili Ma-Africa Logo"
+                android:src="@drawable/ic_logo"
+                android:adjustViewBounds="true" />
+
+            <!-- Spacer to push icons to right -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <!-- Icons Container -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <!-- User Icon -->
+                <ImageView
+                    android:id="@+id/user_btn"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_user"
+                    android:contentDescription="User Profile"
+                    android:adjustViewBounds="true" />
+
+                <!-- Cart Button -->
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp">
+
+                    <ImageView
+                        android:id="@+id/cart_btn"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_cart"
+                        android:contentDescription="Shopping Cart"
+                        android:adjustViewBounds="true" />
+
+                    <TextView
+                        android:id="@+id/cart_badge"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:layout_gravity="end|top"
+                        android:background="@drawable/cart_badge_bg"
+                        android:text="0"
+                        android:textColor="#FFF"
+                        android:textSize="10sp"
+                        android:gravity="center" />
+                </FrameLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Main Scrollable Content -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="24dp"
-        android:gravity="center"
-        android:text="Phambili Ma-Africa provides exceptional cleaning services for homes and businesses. Our trained professionals deliver quality cleaning solutions tailored to your needs."
-        android:textColor="#444444"
-        android:textSize="19sp"
-        android:textStyle="normal" />
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <Button
-        android:id="@+id/startButton"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="120dp"
-        android:backgroundTint="#0066CC"
-        android:text="Start"
-        android:textColor="@android:color/white" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:gravity="center_horizontal">
 
-</LinearLayout>
+            <!-- Hero Image -->
+            <ImageView
+                android:id="@+id/hero_image"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginBottom="18dp"
+                android:background="@drawable/card_white_rounded"
+                android:contentDescription="Cleaning tools"
+                android:scaleType="centerCrop"
+                android:src="@drawable/index" />
+
+            <!-- Title -->
+            <TextView
+                android:id="@+id/hero_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Professional Cleaning Services"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                android:textColor="#0066CC"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:paddingBottom="10dp"/>
+
+            <!-- Subtitle -->
+            <TextView
+                android:id="@+id/hero_subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Phambili Ma-Africa provides exceptional cleaning services for homes and businesses. Our trained professionals deliver quality cleaning solutions tailored to your needs."
+                android:textColor="#222222"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:paddingBottom="20dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_id"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="Book Now"
+                android:textColor="#FFF"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:backgroundTint="#0066CC"
+                android:fontFamily="sans-serif-medium"
+                android:elevation="2dp"
+                app:cornerRadius="12dp"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="13dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/our_services_btn"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="Our Services"
+                android:textColor="#FFF"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:backgroundTint="#FFD600"
+                android:fontFamily="sans-serif-medium"
+                android:elevation="2dp"
+                app:cornerRadius="12dp"/>
+        </LinearLayout>
+    </ScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
